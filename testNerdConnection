@@ -6,6 +6,26 @@ echo "Hello World";
   //host, username, password, database
   $mysqli = mysqli_connect("homepages.cs.ncl.ac.uk:3306", "t8005t1", "", "");
 
+//RETRIEVE INFO FROM DB
+	if(mysqli_connect_error()){
+		printf("Connection Failed: %s\n", myqli_connect_error());
+		exit;
+	} else {
+		$sql = "SELECT * FROM tableName";
+		$results = mysqli_query($mysqli, $sql);
+		
+		if($results) {
+			while($newArray = mysqli_fetch_array($results, MYSQLI_ASSOC)){
+				$id = $newArray['id'];
+				$testField = $newArray['testField'];
+				echo "The ID is " . $id . " and the text is: " . $testField . "<br/>";
+			}
+		} else {
+			printf("Could not retrieve records: %s\n", mysqli_error($mysqli));
+		}
+		
+		mysqli_free_results($results);
+		mysqli_close($mysqli);
 
 //CHANGE STATUS OF AN ORDER
 	//delivered = 1
