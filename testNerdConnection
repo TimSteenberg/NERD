@@ -1,0 +1,15 @@
+<?php 
+
+echo "Hello World";
+
+//CONNECTION
+  //host, username, password, database
+  $mysqli = mysqli_connect("homepages.cs.ncl.ac.uk:3306", "t8005t1", "", "");
+
+
+//CHANGE STATUS OF AN ORDER
+	//delivered = 1
+	//undelivered = 0
+
+
+?>
